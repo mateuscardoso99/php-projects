@@ -1,0 +1,190 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	font-size: 10px;
+	min-height: 100vh;
+}
+.container{
+	width: 100%;
+	flex: 1;
+	background-color: #eaeaea;
+}
+
+header{
+	width: 100%;
+	height: 4rem;
+	background-color: #c1c1c1;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-direction: row;
+	padding-left: 2rem;
+	padding-right: 2rem;
+}
+header .desktop-menu{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+header a{
+	margin: 5px;
+	text-decoration: none;
+	color: #000;
+}
+header form{
+	position: relative;
+}
+header input{
+	border-radius: 10px;
+	border: none;
+	height: 1.5rem;
+	text-indent: 5px;
+	margin-left: 5px;
+}
+header button{
+	position: absolute;
+	right: 5px;
+	border: none;
+	background: none;
+	cursor: pointer;
+	font-size: 1.1rem;
+}
+
+header .burger{
+	display: none;
+}
+header .bar{
+	width: 30px;
+	height: 5px;
+	background-color: #333;
+	margin: 6px 0;
+}
+
+#menu-mobile{
+	display: none;
+	flex-direction: column;
+	width: 100%;
+	position: relative;
+	float: right;
+	height: 10rem;
+	align-items: center;
+	justify-content: center;
+	background-color: #c1c1c1;
+}
+#menu-mobile a{
+	margin-top: 1rem;
+	text-decoration: none;
+	color: #000;
+}
+
+#menu-mobile input{
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+	border-radius: 10px;
+	border: none;
+	height: 1.5rem;
+	text-indent: 5px;
+}
+
+/* view principal */
+main{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	/*flex-direction: column;*/
+	padding-right: 5rem;
+	padding-left: 5rem;
+	width: 100%;
+	/*height: calc(100vh - 8rem);*/
+}
+main .row{
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	/*flex-direction: row;
+	flex-wrap: wrap;*/
+	flex-flow: row wrap;/*junção do flex-direction com o flex wrap*/
+}
+main .row .card{
+	width: 500px;
+	padding: 1rem;
+	background-color: #fff;
+	margin: 1rem;
+}
+
+main .row .modal{
+	background-color: #c1c1c1;
+    width: 300px;
+    height: 300px;
+    border-radius: 10px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 10px 10px;
+}
+
+main .row .card h1{
+	font-size: 1.5rem;
+	margin-bottom: 1rem;
+}
+main .row .card p{
+	line-height: 1.8rem;
+	font-size: 1.1rem;
+	margin-bottom: 1rem;
+}
+
+.footer{
+	width: 100%;
+	height: 4rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #c1c1c1;
+}
+
+/* view de cadastro */
+main form{
+	width: 80%;
+}
+
+main .input-area{
+	display: flex;
+	flex-direction: column;
+	margin-top: 2rem;
+}
+
+main .button-submit{
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+}
+
+@media (max-width: 600px){
+	header .desktop-menu{
+		display: none;
+	}
+	header .burger{
+		display: inline-block;
+		cursor: pointer;
+	}
+
+}
+
+@media (max-width: 800px){
+	main{
+		padding-left: 1rem;
+		padding-right: 1rem;
+	}
+	main .row .card{
+		width: 300px;
+	}
+}
