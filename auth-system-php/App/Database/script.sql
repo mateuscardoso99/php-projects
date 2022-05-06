@@ -15,3 +15,21 @@ CREATE TABLE password_resets(
 	expiration_date datetime NOT NULL,
 	INDEX (email)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE turmas(
+	id bigint UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	codigo varchar(255) NOT NULL,
+	disciplina varchar(255) NOT NULL,
+	created_at timestamp NOT NULL,
+    updated_at timestamp NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE alunos(
+	id bigint UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	nome varchar(255) NOT NULL,
+	matricula varchar(255) NOT NULL,
+	turma_id bigint UNSIGNED NOT NULL,
+	created_at timestamp NOT NULL,
+    updated_at timestamp NOT NULL,
+    FOREIGN KEY (turma_id) REFERENCES turmas (id) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

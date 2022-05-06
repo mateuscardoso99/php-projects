@@ -34,5 +34,7 @@
 
 		<p class="lead">If user account is verified then click on the following button to login.</p>
         <a class="btn btn-lg btn-success" href="./index.php">Click to Login</a>
+
+        <script src="js/script.js"></script>
 	</body>
 </html>

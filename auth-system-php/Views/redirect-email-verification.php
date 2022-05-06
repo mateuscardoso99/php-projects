@@ -65,5 +65,7 @@
 			<input type="hidden" name="email" value="<?php echo $_SESSION['email']?>">
 			<button type="submit" class="btn-email-verify" name="send-link">Enviar link</button>
 		</form>
+
+		<script src="js/script.js"></script>
 	</body>
 </html>

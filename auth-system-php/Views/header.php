@@ -20,7 +20,15 @@
 			else{
 		?>
 				<li>
-					<a href="logout.php">SAIR</a>
+					<div class="dropdown">
+						<button class="dropdown-btn" onclick="dropdown()">
+							<?php echo htmlspecialchars($_SESSION['name']) ?>
+							<span class="dropdown-icon"></span>
+						</button>
+						<div id="dropdown" class="dropdown-content">
+				    		<a href="logout.php">Sair</a>
+				  		</div>
+					</div>
 				</li>
 		<?php 
 			}

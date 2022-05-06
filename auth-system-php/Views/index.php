@@ -22,7 +22,6 @@
 	<body>
 		<?php include_once("./header.php");?>		
 
-		<div>
 		<?php 
 			if(!isset($_SESSION)){
 				session_start();
@@ -54,6 +53,7 @@
 				</div>
 			</form>
 		</div>
-	</div>
+
+		<script src="js/script.js"></script>
 	</body>
 </html>

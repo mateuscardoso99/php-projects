@@ -4,14 +4,21 @@
 	box-sizing: border-box;
 }
 
+html, body{
+	height: 100%;
+}
+
 body{
 	font-family: Verdana, Arial, sans-serif;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	justify-content: center;
 }
 
 nav{
+	position: fixed;
+	top: 0;
 	width: 100%;
     height: 60px;
     background-color: #000;
@@ -112,11 +119,188 @@ nav ul li a{
 	cursor: pointer;
 }
 
+.dropdown{
+	position: relative;
+	display: inline-block;
+}
+
+.dropdown-btn{
+	background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 15px;
+}
+
+.dropdown-icon{
+	display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 2px;
+    vertical-align: middle;
+    border-top: 4px dashed;
+    border-top: 4px solid\9;
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+}
+
+.dropdown-content{
+	display: none;
+	background-color: #d4d4d4;
+	position: absolute;
+	min-height: 30px;
+}
+
+.dropdown-content a{
+	color: #000;
+	display: block;
+}
+
+.container{
+	width: 100%;
+	max-width: 1200px;
+	display: flex;
+	flex-direction: column;
+	padding: 15px;
+}
+
+.row{
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+/*.row>*{
+	padding-left: 10px;
+	padding-right: 10px;
+}*/
+
+.column{
+	width: 50%;
+}
+
+.turmas, .alunos{
+    color: #fff;
+    padding: 35px;
+}
+
+.turmas p, .alunos p{
+	margin-bottom: 10px;
+}
+
+.turmas{
+	background-color: #ec1919;
+	margin-right: 10px;
+}
+
+.alunos{
+	background-color: #1ead1c;
+	margin-left: 10px;
+}
+
+.button-add-container{
+	display: flex;
+	justify-content: flex-end;
+	margin-bottom: 20px;
+}
+
+.btn-add{
+	color: #000;
+	border: none;
+	padding: 20px 40px;
+	cursor: pointer;
+}
+
+.modal{
+	display: none;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	position: fixed;
+	top: 0;
+	left: 0;
+	overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal .modal-content{
+	background-color: #fefefe;
+	padding: 50px;
+	border: 1px solid #888;
+	width: 50%;
+	position: relative;
+}
+
+.modal .modal-content .title-delete{
+	margin-bottom: 20px;
+}
+
+.modal .modal-content a{
+	text-decoration: none;
+}
+
+.modal-content .close{
+	position: absolute;
+	top: 0;
+	right: 10px;
+	align-self: flex-end;
+	font-size: 28px;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+table{
+	border-collapse: collapse;
+}
+
+th{
+	background-color: #0a0d58;
+	color: #fff;
+}
+
+th, td{
+	padding: 15px;
+	text-align: left;
+}
+
+tr:nth-child(even){
+	background-color: #f2f2f2;
+}
+
+.btn-danger{
+	background-color: #ce0000;
+	border: none;
+	padding: 10px 20px;
+	cursor: pointer;
+	color: #fff;
+	border-radius: 10px;
+}
+
+.show{
+	display: block;
+}
+
 @media(max-width: 500px){
 	.form-container{
 		width: 90%;
 	}
 	.form-container form{
 		width: 100%;
+	}
+	.column{
+		width: 100%;
+	}
+	.modal .modal-content{
+		width: 90%;
+	}
+}
+
+@media(min-width: 768px){
+	.row-cols-md-2>*{
+		flex: 0 0 auto;
+    	width: 50%;
 	}
 }
