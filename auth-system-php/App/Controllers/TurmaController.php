@@ -18,8 +18,9 @@
 			return $turmaDao->read();
 		}
 
-		public function show(){
-
+		public function show($id){
+			$turmaDao = new TurmaDao();
+			return $turmaDao->checkExits($id);
 		}
 
 		public function store($data){
@@ -50,22 +51,46 @@
 			header("Location: dashboard.php");
 		}
 
-		public function update(){
+		public function update($data){
+			$turmaDao = new TurmaDao();
+			$checkExists = $turmaDao->checkExits($data['id']);
+
+			if(!$checkExists['codigo']){
+				$_SESSION['error'] = "Turma inválida";
+				header("Location: dashboard.php");
+				exit;
+			}
+
+			$turma = new Turma();
+			$turma->setId($data['id']);
+			$turma->setCodigo($data['code']);
+			$turma->setDisciplina($data['disciplina']);
+			$turma->setCreatedAt($checkExists['created_at']);
+			$turma->setUpdatedAt(date('Y-m-d H:i:s'));
+
+			if($turmaDao->update($turma)){
+				$_SESSION['success'] = "Turma atualizada com sucesso";	
+			}
+			else{
+				$_SESSION['error'] = "Não foi possível atualizar a turma";
+			}
+			
+			header("Location: dashboard.php");
 
 		}
 
 		public function delete($id){
 			$turmaDao = new TurmaDao();
 			$checkExists = $turmaDao->checkExits($id);
+
 			if(isset($checkExists['codigo'])){
 				$turmaDao->delete($checkExists['id']);
 				$_SESSION['success'] = "Turma excluida com sucesso";
-				header("Location: dashboard.php");
 			}
 			else{
 				$_SESSION['error'] = "Turma inválida";
-				header("Location: dashboard.php");
 			}
+			header("Location: dashboard.php");
 		}
 
 	}

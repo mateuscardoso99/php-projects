@@ -80,9 +80,14 @@
 				
 				<?php foreach($turmas as $turma){ ?>
 					<tr>
-						<td><?php echo $turma['codigo']; ?></td>
+						<td>
+							<a href="detail-turma.php?id=<?php echo $turma['id'] ?>">
+								<?php echo $turma['codigo']; ?>
+							</a>
+						</td>
 						<td><?php echo $turma['disciplina']; ?></td>
 						<td>
+							<a href="edit-turma.php?id=<?php echo $turma['id'] ?>" class="btn-edit">EDITAR</a>
 							<button type="button" onclick="deleteTurma('<?php echo $turma['id'] ?>')" class="btn-danger">APAGAR</button>
 						</td>
 					</tr>
@@ -93,7 +98,7 @@
 				<div class="modal-content form-container">
 					<h1>Adicionar turma</h1>
 					<span class="close" onclick="closeModal('modal-turma')">&times;</span>
-					<form action="handle-create-turma.php" method="post">
+					<form action="turma.php" method="post">
 						<div class="field">
 							<label>Código</label>
 							<input type="text" name="code">
@@ -124,8 +129,8 @@
 		<script src="js/script.js"></script>
 
 		<script type="text/javascript">
-			function deleteItem(id){
-				document.getElementById("link-delete-turma").href = `handle-delete-turma.php?id=${id}`
+			function deleteTurma(id){
+				document.getElementById("link-delete-turma").href = `turma.php?id=${id}&action=delete`
 				openModal('modal-delete-turma')
 			}
 		</script>
