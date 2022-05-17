@@ -11,6 +11,17 @@
 		private $remember_token;
 		private $created_at;
 
+		public function __construct($id,$name,$email,$password,$email_verified_at,$email_verification_token,$remember_token,$created_at){
+			$this->id = $id;
+			$this->name = $name;
+			$this->email = $email;
+			$this->password = $password;
+			$this->email_verified_at = $email_verified_at;
+			$this->email_verification_token = $email_verification_token;
+			$this->remember_token = $remember_token;
+			$this->created_at = $created_at;
+		}
+
 		public function getId(){
 			return $this->id;
 		}

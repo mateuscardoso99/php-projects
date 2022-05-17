@@ -26,12 +26,9 @@
 			}
 			else{
 				$userDao = new UsuarioDao();
-				$verify_email = $userDao->findByEmail($data['email']);
+				$email_exists = $userDao->findByEmail($data['email']);
 
-				if(isset($verify_email['email']) == $data['email']){
-					$_SESSION['error'] = "email já cadastrado";
-				}
-				else{
+				if($email_exists === FALSE){
 					$user = new User();
 
 					$token = bin2hex(random_bytes(30));
@@ -53,6 +50,9 @@
 					else {
 						$_SESSION['error'] = "Não foi possível criar a conta";
 					}
+				}
+				else{
+					$_SESSION['error'] = "email já cadastrado";
 				}
 			}
 

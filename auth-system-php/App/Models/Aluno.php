@@ -5,7 +5,7 @@
 		private $id;
 		private $nome;
 		private $matricula;
-		private $turma_id;
+		private $turma;
 		private $created_at;
 		private $updated_at;
 
@@ -21,8 +21,8 @@
 			return $this->matricula;
 		}
 
-		public function getTurmaId(){
-			return $this->turma_id;
+		public function getTurma(){
+			return $this->turma;
 		}
 
 		public function getCreatedAt(){
@@ -45,8 +45,8 @@
 			$this->matricula = $matricula;
 		}
 
-		public function setTurmaId($turma_id){
-			$this->turma_id = $turma_id;
+		public function setTurma($turma){
+			$this->turma = $turma;
 		}
 
 		public function setCreatedAt($created_at){

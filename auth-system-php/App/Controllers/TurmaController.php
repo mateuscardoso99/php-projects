@@ -1,6 +1,7 @@
 <?php
 	namespace App\Controllers;
 
+	use App\Models\User;
 	use App\Models\Turma;
 	use App\Validation\Validation;
 	use App\Dao\TurmaDao;
@@ -18,6 +19,11 @@
 			return $turmaDao->read();
 		}
 
+		public function getAlunosFromTurma($id){
+			$turmaDao = new TurmaDao();
+			return $turmaDao->getAlunosFromTurma($id);
+		}
+
 		public function show($id){
 			$turmaDao = new TurmaDao();
 			return $turmaDao->checkExits($id);
@@ -32,10 +38,22 @@
 				header("Location: dashboard.php");
 				exit;
 			}
+
+			$user = new User(
+				$_SESSION['user_id'],
+				$_SESSION['name'],
+				$_SESSION['email'],
+				$_SESSION['password'],
+				$_SESSION['email_verified_at'],
+				$_SESSION['email_verification_token'],
+				$_SESSION['remember_token'],
+				$_SESSION['created_at']
+			);
 			
 			$turma = new Turma();
 			$turma->setCodigo($data['code']);
 			$turma->setDisciplina($data['disciplina']);
+			$turma->setUser($user);
 			$turma->setCreatedAt(date('Y-m-d H:i:s'));
 			$turma->setUpdatedAt(date('Y-m-d H:i:s'));
 

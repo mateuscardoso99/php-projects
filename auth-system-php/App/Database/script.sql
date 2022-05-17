@@ -20,8 +20,10 @@ CREATE TABLE turmas(
 	id bigint UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 	codigo varchar(255) NOT NULL,
 	disciplina varchar(255) NOT NULL,
+	user_id bigint UNSIGNED NOT NULL,
 	created_at timestamp NOT NULL,
-    updated_at timestamp NOT NULL
+    updated_at timestamp NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE alunos(

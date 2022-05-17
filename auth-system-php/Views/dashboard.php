@@ -53,14 +53,14 @@
 			<div class="row row-cols-md-2">
 				<div class="column">
 					<div class="turmas">
-						<p><?php echo $turmas->rowCount(); ?></p>
+						<p><?php echo count($turmas)?></p>
 						<h3>Turmas Cadastradas</h3>
 					</div>
 				</div>
 				<div class="column">
 					<div class="alunos">
 						<p>5</p>
-						<h3>Turmas</h3>
+						<h3>Alunos</h3>
 					</div>
 				</div>
 			</div>

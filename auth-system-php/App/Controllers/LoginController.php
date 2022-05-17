@@ -33,6 +33,8 @@
 					$_SESSION['email'] = $verify_user['email'];
 					$_SESSION['password'] = $verify_user['password'];
 					$_SESSION['email_verified_at'] = $verify_user['email_verified_at'];
+					$_SESSION['email_verification_token'] = $verify_user['email_verification_token'];
+					$_SESSION['remember_token'] = $verify_user['remember_token'];
 					$_SESSION['created_at'] = $verify_user['created_at'];
 					$_SESSION['loggedin'] = true;
 

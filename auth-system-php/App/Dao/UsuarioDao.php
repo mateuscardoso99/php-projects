@@ -12,7 +12,10 @@
 			$stmt = DB::connection()->prepare($sql);
 			$stmt->bindValue(1,$email,PDO::PARAM_STR);
 			$stmt->execute();
-			return $stmt->fetch();
+			if($stmt->rowCount()==1){
+				return $stmt->fetch();
+			}
+			return false;
 		}
 
 		public function tokenResetPassword($email,$token,$expiration_date){
