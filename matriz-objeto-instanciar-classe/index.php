@@ -62,6 +62,8 @@
 
     echo "<br><br>";
 
+
+    //Defina um array com os valores: Carlos, 9, 7, Bianca, 7, 10. Calcule a média aritmética de Carlos e Bianca, e exiba o resultado
     $array4 = array("carlos",9,7,"bianca",7,10);
     foreach($array4 as $key=>$value){
         if(gettype($value) === "string"){
