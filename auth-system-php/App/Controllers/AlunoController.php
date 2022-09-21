@@ -10,6 +10,11 @@
 
 	class AlunoController{
 
+		public function totalAlunos($user_id){
+			$alunoDao = new AlunoDao();
+			return $alunoDao->totalAlunos($user_id);
+		}
+
 		public function store($data){
 			$validator = new Validation();
 			$msg = $validator->check_empty($data,array('nome','matricula','turma_id'));
@@ -33,7 +38,6 @@
 			$turma->setId($get_turma['id']);
 			$turma->setCodigo($get_turma['code']);
 			$turma->setDisciplina($get_data['disciplina']);
-			$turma->setUserId($get_turma['user_id']);
 			$turma->setCreatedAt($get_turma['created_at']);
 			$turma->setUpdatedAt($get_turma['updated_at']);
 			

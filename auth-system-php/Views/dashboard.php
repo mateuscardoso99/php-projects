@@ -5,7 +5,7 @@
 		session_start();
 	}
 	
-	if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true){
+	if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== TRUE){
 		header("Location: index.php");
 		exit;
 	}
@@ -16,9 +16,13 @@
 	}
 
 	use App\Controllers\TurmaController;
+	use App\Controllers\AlunoController;
 
 	$turmaController = new TurmaController();
 	$turmas = $turmaController->index();
+
+	$alunoController = new AlunoController();
+	$totalAlunos = $alunoController->totalAlunos($_SESSION['user_id']);
 ?>
 
 <!DOCTYPE html>
@@ -59,8 +63,8 @@
 				</div>
 				<div class="column">
 					<div class="alunos">
-						<p>5</p>
-						<h3>Alunos</h3>
+						<p><?php echo $totalAlunos[0] ?></p>
+						<h3>Total de alunos</h3>
 					</div>
 				</div>
 			</div>
@@ -85,7 +89,7 @@
 								<?php echo $turma['codigo']; ?>
 							</a>
 						</td>
-						<td><?php echo $turma['disciplina']; ?></td>
+						<td><?php echo utf8_encode($turma['disciplina']) ?></td>
 						<td>
 							<a href="edit-turma.php?id=<?php echo $turma['id'] ?>" class="btn-edit">EDITAR</a>
 							<button type="button" onclick="deleteTurma('<?php echo $turma['id'] ?>')" class="btn-danger">APAGAR</button>

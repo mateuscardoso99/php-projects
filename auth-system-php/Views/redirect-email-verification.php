@@ -7,7 +7,7 @@
 		session_start();
 	}
 	
-	if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true){
+	if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== TRUE){
 		header("Location: index.php");
 		exit;
 	}
@@ -60,7 +60,7 @@
 			<p>Verifique seu email para poder logar</p>
 		</div>
 
-		<form action="" method="post">
+		<form action="" method="post" style="text-align: center;">
 			<input type="hidden" name="action" value="send_link">
 			<input type="hidden" name="email" value="<?php echo $_SESSION['email']?>">
 			<button type="submit" class="btn-email-verify" name="send-link">Enviar link</button>

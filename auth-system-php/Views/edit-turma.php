@@ -7,7 +7,7 @@
 		session_start();
 	}
 	
-	if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true){
+	if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== TRUE){
 		header("Location: index.php");
 		exit;
 	}
@@ -42,7 +42,7 @@
 
 					<div class="container">
 						<div class="form-container">
-							<h1>Editar turma <?php echo $turma['disciplina'] ?></h1>
+							<h1>Editar turma <?php echo utf8_encode($turma['disciplina']) ?></h1>
 							<form action="turma.php" method="post">
 								<input type="hidden" name="id" value="<?php echo $turma['id'] ?>">
 
@@ -53,7 +53,7 @@
 
 								<div class="field">
 									<label>Disciplina</label>
-									<input type="text" name="disciplina" value="<?php echo $turma['disciplina'] ?>">
+									<input type="text" name="disciplina" value="<?php echo utf8_encode($turma['disciplina']) ?>">
 								</div>
 
 								<div class="field">

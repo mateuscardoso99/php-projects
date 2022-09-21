@@ -16,9 +16,10 @@
 		}
 
 		public function getAlunosFromTurma($id){
-			$sql = "SELECT alunos.* FROM turmas JOIN alunos ON alunos.turma_id = turmas.id WHERE turmas.id = ?";
+			$sql = "SELECT alunos.* FROM turmas JOIN alunos ON alunos.turma_id = turmas.id WHERE turmas.id = ? AND turmas.user_id = ? ORDER BY nome ASC";
 			$stmt = DB::connection()->prepare($sql);
 			$stmt->bindValue(1,$id,PDO::PARAM_INT);
+			$stmt->bindValue(2,$_SESSION['user_id'],PDO::PARAM_INT);
 			$stmt->execute();
 			return $stmt->fetchAll();
 		}

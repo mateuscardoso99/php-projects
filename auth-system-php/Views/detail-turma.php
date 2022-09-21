@@ -5,7 +5,7 @@
 		session_start();
 	}
 	
-	if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true){
+	if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== TRUE){
 		header("Location: index.php");
 		exit;
 	}
@@ -35,7 +35,7 @@
 				<meta charset="utf-8">
 				<meta name="viewport" content="width=device-width, initial-scale=1">
 				<link rel="stylesheet" type="text/css" href="css/styles.css">
-				<title><?php echo $turma['disciplina'] ?></title>
+				<title><?php echo utf8_encode($turma['disciplina']) ?></title>
 			</head>
 			<body>
 				<?php include_once("header.php") ?>
@@ -58,7 +58,7 @@
 				<?php } unset($_SESSION['error']) ?>
 
 				<div class="container">
-					<h1 class="title-detail">Turma <?php echo $turma['disciplina'] ?></h1>
+					<h1 class="title-detail">Turma <?php echo utf8_encode($turma['disciplina']) ?></h1>
 
 					<div class="add-aluno">
 						<h3>Alunos:</h3>

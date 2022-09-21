@@ -7,7 +7,7 @@
 <nav>
 	<ul>
 		<?php 
-			if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) { 
+			if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != TRUE) { 
 		?>
 				<li>
 					<a href="./index.php">LOGIN</a>

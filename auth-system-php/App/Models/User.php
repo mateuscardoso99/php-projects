@@ -11,7 +11,22 @@
 		private $remember_token;
 		private $created_at;
 
-		public function __construct($id,$name,$email,$password,$email_verified_at,$email_verification_token,$remember_token,$created_at){
+		/*
+		PHP não tem suporte para declarar vários construtores de diferentes números de parâmetros para uma classe, ao contrário de linguagens como Java.
+
+		primeiro precisamos contar o número de argumentos passados ao construtor usando func_num_args() e obter todos os argumentos atribuídos por func_get_args(). Então tudo o que nos resta fazer é chamar a função adequada usando call_user_func_array() passando os argumentos originais como segundo argumento de call_user_func_array()
+		*/
+
+		public function __construct(){
+			$arguments = func_get_args();
+	        $numberOfArguments = func_num_args();
+
+	        if (method_exists($this, $function = '__construct'.$numberOfArguments)){
+	            call_user_func_array(array($this, $function), $arguments);
+        	}
+		}
+
+		public function __construct8($id,$name,$email,$password,$email_verified_at,$email_verification_token,$remember_token,$created_at){
 			$this->id = $id;
 			$this->name = $name;
 			$this->email = $email;
