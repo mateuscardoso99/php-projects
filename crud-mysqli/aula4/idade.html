@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="calcularIdade.php" method="post">
+        <label for="nome">nome</label>
+        <input type="text" name="nome" id="nome">
+
+        <label for="ano">ano</label>
+        <input type="number" name="ano" id="ano">
+
+        <fieldset>
+            <legend>sexo</legend>
+            <input type="radio" name="sexo" id="masc" value="masculino">
+            <label for="masc">Masculino</label>
+            <input type="radio" name="sexo" id="fem" value="feminino">
+            <label for="fem">Feminino</label>
+        </fieldset>
+        
+        <fieldset>
+            <legend>frutas</legend>
+            <label for="banana">banana</label>
+            <input type="checkbox" name="frutas[]" id="banana" value="banana">
+            <label for="maca">maca</label>
+            <input type="checkbox" name="frutas[]" id="maca" value="maça">
+            <label for="abacate">abacate</label>
+            <input type="checkbox" name="frutas[]" id="abacate" value="abacate">
+        </fieldset>
+        <button type="submit">enviar</button>
+    </form>
+</body>
+</html>
