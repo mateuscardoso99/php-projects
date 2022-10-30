@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cor</title>
+</head>
+<body>
+    <div>
+        <form method="post" action="cor.php">
+            <label for="txt">Texto:</label>
+            <input type="text" name="texto" id="txt"><br>
+            <label for="tam">Tamanho:</label>
+            <select name="tamanho" id="tam">
+                <option value="8pt">8</option>
+                <option value="10pt">10</option>
+                <option value="14pt">14</option>
+                <option value="20pt">20</option>
+                <option value="40pt">40</option>
+                <option value="60px">60</option>
+            </select><br>
+            <label for="cor">Cor:</label>
+            <input type="color" name="cor" id="cor"><br>
+            <button type="submit">Gerar</button>
+        </form>
+    </div>
+</body>
+</html>
