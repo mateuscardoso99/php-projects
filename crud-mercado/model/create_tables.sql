@@ -1,0 +1,5 @@
+CREATE TABLE produto(
+    id INT(4) PRIMARY KEY AUTO_INCREMENT,
+    descricao VARCHAR(100) NOT NULL,
+    preco DECIMAL(10,2) NOT NULL
+);
